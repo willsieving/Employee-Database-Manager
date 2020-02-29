@@ -27,9 +27,10 @@ window = sg.Window('Employee Database Entry', entry_layout)
 # Creating the context manager to manage session open/close
 class open_session():
 
-    def __init__(self, bind):
-        Session = sessionmaker(bind=bind)
+    def __init__(self, eng):
+        Session = sessionmaker(bind=eng)
         self.session = Session()
+          
     def __enter__(self):
         return self.session
 
